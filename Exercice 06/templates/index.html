@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/definir_cor" method="POST">
+    
+    <input type="color" name="cor" value="{{ cor }}">
+    
+    <br><br>
+    <button type="submit">Salvar</button>
+
+</form>
+
+{% endblock %}
