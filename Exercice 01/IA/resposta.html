@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta | App de Cadastro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4a5568;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .mensagem {
+            background: #f0fff4;
+            border-left: 6px solid #48bb78;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 25px 0;
+            font-size: 1.3rem;
+            color: #22543d;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎉 Cadastro realizado!</h2>
+        <div class="mensagem" id="mensagemPersonalizada">
+            <!-- O nome será inserido via JavaScript -->
+        </div>
+        <a href="index.html" class="btn">🏠 Voltar para página inicial</a>
+    </div>
+
+    <script>
+        // Função para obter parâmetros da URL
+        function getParametroNome() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('nome');
+        }
+
+        const nome = getParametroNome();
+        const divMensagem = document.getElementById('mensagemPersonalizada');
+
+        if (nome && nome.trim() !== "") {
+            divMensagem.innerHTML = `✨ Olá, <strong>${escapeHtml(nome)}</strong>! ✨<br>Seu cadastro foi recebido com sucesso. Seja muito bem-vindo(a)!`;
+        } else {
+            divMensagem.innerHTML = `⚠️ Nenhum nome foi enviado. Por favor, <a href="cadastro.html" style="color:#667eea;">volte ao cadastro</a> e informe seu nome.`;
+        }
+
+        // Função simples para evitar injeção de HTML
+        function escapeHtml(texto) {
+            const div = document.createElement('div');
+            div.textContent = texto;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

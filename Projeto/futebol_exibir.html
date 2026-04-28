@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe Cadastrada - Futebol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 Equipe Cadastrada com Sucesso!</h1>
+        </header>
+
+        <div class="result-card" id="resultadoEquipe">
+            <div id="dadosPresentes" style="display: none;">
+                <h1 id="mostrarTurma">Nome da Turma</h1>
+                <h2 id="mostrarEquipe">Nome da Equipe</h2>
+                <p id="mostrarCapitao">Capitão: Nome do Capitão</p>
+            </div>
+            <div id="nenhumDado" style="display: none;">
+                <p class="mensagem-erro">⚠️ Nenhuma equipe de futebol cadastrada ainda.</p>
+                <a href="futebol_cadastro.html" class="btn-primary">Cadastrar nova equipe</a>
+            </div>
+        </div>
+
+        <div class="acoes">
+            <a href="index.html" class="btn-secondary">⬅ Voltar ao início</a>
+            <a href="futebol_cadastro.html" class="btn-primary">✏️ Cadastrar outra equipe</a>
+        </div>
+
+        <footer>
+            <p>Participante da equipe: christian Kallil (BTWO)</p>
+        </footer>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const dadosSalvos = localStorage.getItem('equipeFutebol');
+            
+            if (dadosSalvos) {
+                const equipe = JSON.parse(dadosSalvos);
+                document.getElementById('mostrarTurma').textContent = equipe.turma;
+                document.getElementById('mostrarEquipe').textContent = equipe.equipe;
+                document.getElementById('mostrarCapitao').textContent = `Capitão/Capitã: ${equipe.capitao}`;
+                
+                document.getElementById('dadosPresentes').style.display = 'block';
+                document.getElementById('nenhumDado').style.display = 'none';
+            } else {
+                document.getElementById('dadosPresentes').style.display = 'none';
+                document.getElementById('nenhumDado').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Jogos Escolares
+{% endblock %}
+
+{% block estilo %}
+    <style>
+        h2 {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<h1>Projeto</h1>
+<a href="{{url_for('cadastro')}}">
+    Cadastro
+</a>
+{% endblock %}
