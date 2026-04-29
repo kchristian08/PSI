@@ -1,1 +1,1 @@
-Repositório criado para acompanhar andamento da matéria técnica de PSI - Prof.Romerito
+Repositório criado para acompanhar o andamento da matéria técnica de PSI - Apresentada pelo Professor Romerito Campos de Andrade
